@@ -18,10 +18,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  showOrder,
 }: {
   children: React.ReactNode;
-  showOrder?: boolean;
 }) {
   return (
     <html lang="en">
