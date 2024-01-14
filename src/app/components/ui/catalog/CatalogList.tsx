@@ -6,7 +6,7 @@ interface ICatalogList {
 
 export const CatalogList = ({ children }: ICatalogList) => {
     return (
-        <ul className="grid grid-cols-5 gap-5">
+        <ul className="grid grid-cols-6 gap-6">
             {children}
         </ul>
     )

@@ -1,20 +1,17 @@
-import { ICategory } from "./category.interface"
-import { IReview } from "./review.interface"
+
 
 export interface IProduct {
-    id: number
-    name: string
-    description: string
-    slug: string
-    price: number | string
-    rating: number,
-    reviews: IReview[]
-    images: string[]
-    createdAt: string
-    category: ICategory
-    categoryId: number
+        id: number,
+        title: string,
+        price: number,
+        description: string,
+        category: string,
+        image: string,
+        rating: { rate: number, count: number }
 }
 
 export interface IProductDetails {
     product: IProduct
 }
+
+
