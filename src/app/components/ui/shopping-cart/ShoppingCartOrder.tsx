@@ -17,12 +17,12 @@ export default function ShoppingCartOrder({}: IShoppingCartOrder) {
     const handleToggle = () => {
         setIsOpen(pS => !pS)
     }
-    useEffect(() => {
-      if(cart.length === 0 ){
+  //   useEffect(() => {
+  //     if(cart.length === 0 ){
 
-          redirect('/')
-      }
-  }, [cart])
+  //         redirect('/')
+  //     }
+  // }, [cart])
     return (
       <>
       <div>

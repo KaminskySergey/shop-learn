@@ -3,9 +3,8 @@ import { validationSchema } from '@/utils/validate-form';
 import { useFormik } from 'formik';
 import Button from '../button/Button';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 import { notiOrderSuccess, notifyOrderError } from '@/constants/toasts';
 import { clearCart } from '@/store/card/cart.slice';
 import { IInitialStateCatalog } from '@/store/card/cart.interface';
@@ -30,13 +29,20 @@ const dispatch = useDispatch()
           });
       
           const data = await response.json();
+      console.log(response)
       
           if (response.ok) {
+            console.log(data)
+            if(data.status === 'error'){
+              return notifyOrderError(data.message);
+            }
             notiOrderSuccess(data.message);
             console.log({user: values, products: cart})
             resetForm();
             dispatch(clearCart([]))
-
+          //   setTimeout(() => {
+          //     redirect('/');
+          // }, 3000);
           } else {
             notifyOrderError(data.message);
           }

@@ -11,8 +11,8 @@ type ResponseData = {
 export async function POST(request: Request) {
   let response: ResponseData = {};
   const body = await request.json();
-
-
+console.log(process.env.NEXT_PUBLIC_SENDGRID_API_KEY)
+console.log(body, 'fvffvfvfvfv')
   const message = `
     Name: ${body.user.name}\r\n
     Email: ${body.user.email}\r\n
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   const data = {
     to: `mendozakamin@gmail.com`,
     from: 'serezha.kaminskiy.01@gmail.com',
-    subject: 'Order from Rozetka store',
+    subject: 'Order store',
     text: message,
     html: message.replace(/\r\n/g, '<br>'),
   };
