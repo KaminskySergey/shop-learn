@@ -77,11 +77,11 @@ export default function ShoppingCart({setIsOpen }: IShoppingCart) {
             </Link>
           </div>
           <div className="flex items-center">
-            <button onClick={() => handleChangeQuantity(item.id, 'increment')} className="text-gray-500 hover:text-gray-700">
+            <button onClick={() => handleChangeQuantity(item.id, 'increment')} className="text-black-500 hover:text-black-700">
               <FaPlus />
             </button>
-            <span className="mx-2">{item.quantity}</span>
-            <button onClick={() => handleChangeQuantity(item.id, 'decrement')} className="text-gray-500 hover:text-gray-700">
+            <span className="text-lg px-1">{item.quantity}</span>
+            <button onClick={() => handleChangeQuantity(item.id, 'decrement')} className="text-black-500 hover:text-black-700">
               <FaMinus />
             </button>
           </div>

@@ -7,7 +7,7 @@ export const useProductById = (id: number) => {
       queryFn: async () => {
           const {data} = await ProductService.getById(id)
           return data
-      }
+      },
       
   });
   

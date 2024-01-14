@@ -40,9 +40,11 @@ const dispatch = useDispatch()
             console.log({user: values, products: cart})
             resetForm();
             dispatch(clearCart([]))
-          //   setTimeout(() => {
-          //     redirect('/');
-          // }, 3000);
+            if(data.status === 'success'){
+              setTimeout(() => {
+                handleContinueShopping()
+              }, 2000)
+            }
           } else {
             notifyOrderError(data.message);
           }

@@ -2,6 +2,7 @@
 
 import { useProductById } from "@/hooks/useProduct";
 import ProductCard from "./ProductCard";
+import NotFound from "../../not-found";
 
 interface IProductParams {
   params: {
@@ -11,8 +12,14 @@ interface IProductParams {
 
 export default function Product( {params}: IProductParams) {
   const {product, isLoading} = useProductById(params.id)
-  if(!product) return
-    return <div>
-        {isLoading ? <div>loading...</div> : <ProductCard product={product}/>}
-    </div>
+  if (isLoading) {
+    return <div>loading...</div>;
+  }
+
+  if (!product) {
+    return NotFound();
+  }
+    return <>
+        <ProductCard product={product}/>
+        </>
 }
