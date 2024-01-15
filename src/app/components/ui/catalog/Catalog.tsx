@@ -37,7 +37,7 @@ const Catalog = ({ products }: ICatalogProps) => {
                 ))}
             </CatalogList>
 
-            {currentProducts.length !== 0 && <Pagination productsLength={products.length} productsPerPage={productsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />}
+            {currentProducts.length !== 0 && <Pagination productsLength={filteredProducts.length} productsPerPage={productsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />}
         </div>
     );
 };
