@@ -17,12 +17,7 @@ export default function ShoppingCartOrder({}: IShoppingCartOrder) {
     const handleToggle = () => {
         setIsOpen(pS => !pS)
     }
-  //   useEffect(() => {
-  //     if(cart.length === 0 ){
-
-  //         redirect('/')
-  //     }
-  // }, [cart])
+  
     return (
       <>
       <div>
@@ -57,7 +52,7 @@ export default function ShoppingCartOrder({}: IShoppingCartOrder) {
       </div>}
       </div>
       {isOpen && <Modal onClose={handleToggle}>
-        <ShoppingCart setIsOpen={setIsOpen}/>
+        <ShoppingCart setIsOpen={setIsOpen} />
       </Modal>}
       </>
     );

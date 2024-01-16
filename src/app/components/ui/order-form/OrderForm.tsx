@@ -41,7 +41,7 @@ const dispatch = useDispatch()
             if(data.status === 'success'){
               setTimeout(() => {
                 handleContinueShopping()
-              }, 2000)
+              }, 3000)
             }
           } else {
             notifyOrderError(data.message);
