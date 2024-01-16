@@ -29,10 +29,8 @@ const dispatch = useDispatch()
           });
       
           const data = await response.json();
-      console.log(response)
       
           if (response.ok) {
-            console.log(data)
             if(data.status === 'error'){
               return notifyOrderError(data.message);
             }

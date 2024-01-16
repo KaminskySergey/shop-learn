@@ -6,6 +6,7 @@ import { IInitialState } from "@/store/card/cart.interface"
 import { RiShoppingCartFill } from "react-icons/ri"
 import { useSelector } from "react-redux"
 import { RiMoneyDollarBoxFill } from "react-icons/ri";
+import TotalPriceQuantity from "@/app/components/ui/total-price-quantity/TotalPriceQuantity"
 
 
 interface IOrder { }
@@ -20,16 +21,7 @@ export default function Order({ }: IOrder) {
             <div className="font-bold text-2xl">
                 Placing an order
             </div>
-            <div className="flex items-center space-x-4">
-  <div className="flex items-center text-yellow-400">
-    <RiShoppingCartFill className="w-8 h-8 cursor-pointer" />
-    <span className="ml-2 text-lg font-semibold">{totalItems}</span>
-  </div>
-  <div className="flex items-center text-green-400">
-    <RiMoneyDollarBoxFill className="w-8 h-8 cursor-pointer" />
-    <span className="ml-2 text-lg font-semibold">${totalPrice.toFixed(2)}</span>
-  </div>
-</div>
+            <TotalPriceQuantity />
         </div>
         <div className="flex mt-[32px]">
             <div className="w-6/12">

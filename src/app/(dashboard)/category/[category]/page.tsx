@@ -18,7 +18,6 @@ interface IProductParams {
 
 
 async function getProducts(params: IProductParams) {
-    console.log(params)
 const {data: products} = await ProductService.getByCategory(
     params?.category as string
 )

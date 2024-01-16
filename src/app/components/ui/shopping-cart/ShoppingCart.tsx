@@ -12,6 +12,8 @@ import { RiShoppingCartFill } from "react-icons/ri";
 import { notifyClearAllCart, notifyDeleteFromCart } from "@/constants/toasts";
 import { useEffect } from "react";
 import { redirect } from "next/navigation";
+import TotalPriceQuantity from "../total-price-quantity/TotalPriceQuantity";
+import { useTotal } from "@/hooks/useTotal";
 
 
 interface IShoppingCart {
@@ -21,6 +23,7 @@ interface IShoppingCart {
 export default function ShoppingCart({setIsOpen }: IShoppingCart) {
     const { cart } = useSelector((state: {cart: IInitialState, quantity: number}) => state.cart)
     const dispatch = useDispatch()
+    const {totalPrice} = useTotal()
     const handleChangeQuantity = (productId: number, operation: string) => {
         dispatch(updateQuantity({ productId, operation }))
     }
@@ -45,8 +48,8 @@ export default function ShoppingCart({setIsOpen }: IShoppingCart) {
 <div className="mx-auto p-7">
   <div className="flex flex-col md:flex-row items-center justify-between mb-6">
     <div className="flex items-center mb-4 md:mb-0">
-      <h2 className="text-3xl font-bold mr-4">Shopping Cart</h2>
-      <RiShoppingCartFill className="text-yellow-400 w-8 h-8 cursor-pointer" />
+      <h2 className="text-3xl font-bold mr-4 underline">Shopping Cart</h2>
+      <TotalPriceQuantity />
     </div>
     {cart.length !== 0 && (
       <div>
@@ -94,9 +97,9 @@ export default function ShoppingCart({setIsOpen }: IShoppingCart) {
   )}
   {cart.length !== 0 && (
     <div className="flex items-center w-full md:w-48">
-      <Link href={'/order'} onClick={() => setIsOpen}>
+      {totalPrice !== 0 && <Link href={'/order'} onClick={() => setIsOpen}>
       <Button>Place Order</Button>
-      </Link>
+      </Link>}
     </div>
   )}
 </div>
